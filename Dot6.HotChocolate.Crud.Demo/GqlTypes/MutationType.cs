@@ -12,21 +12,21 @@ public class MutationType
     {
         _cakeService = cakeService;
     }
-    public async Task<int> SaveCakeAsync(Cake newCake)
+    public async Task<List<Cake>> SaveCakeAsync(Cake newCake)
     {
-        return await _cakeService.SaveCake(newCake);
+        int noOfRecs= await _cakeService.SaveCake(newCake);
+        var result= await _cakeService.GetAll();
+        return result;
     }
 
     public async Task<Cake> UpdateCakeAsync(Cake updateCake)
     {
-        //context.Cake.Update(updateCake);
-        //await context.SaveChangesAsync();
-        return updateCake;
+        return await _cakeService.UpdateCake(updateCake);
     }
 
-    public async Task<string> DeleteCakeAsync(int id)
+    public async Task<List<Cake>> DeleteCakeAsync(int id)
     {
         int result=await _cakeService.DeleteCake(id);
-        return "Record Deleted!";
+        return await _cakeService.GetAll();
     }
 }

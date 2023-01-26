@@ -34,10 +34,18 @@ namespace Dot6.Services
         {
             return await _cakeRepository.GetFirst();
         }
+        public async Task<Cake> GetById(int id)
+        {
+            return await _cakeRepository.GetById(id);
+        }
 
         public async Task<int> SaveCake(Cake cake)
         {
             return await _cakeRepository.SaveCake(cake);
+        }
+        public async Task<Cake> UpdateCake(Cake cake)
+        {
+            return await _cakeRepository.UpdateCake(cake);
         }
 
         public async Task<int> DeleteCake(int id)

@@ -62,8 +62,8 @@ namespace Dot6.DataAccess
             using (var conn = Connection)
             {
                 var query = "Select * from Cake where Id=@Id";
-                var cake = await conn.QueryAsync<Cake>(query);
-                return cake.FirstOrDefault();
+                var cake = await conn.QuerySingleAsync<Cake>(query, new {Id=Id});
+                return cake;
             }
         }
 
@@ -79,15 +79,26 @@ namespace Dot6.DataAccess
             }
         }
 
+        public async Task<Cake> UpdateCake(Cake cake)
+        {
+            using (var conn = Connection)
+            {
+                var command = @"UPDATE Cake( Name, Price, Description)
+                                VALUES (Id=@Id, Name=@Name, Price=@Price, Description=@Description)";
+
+                var saved = await conn.ExecuteAsync(command, param: cake);
+                return cake;
+            }
+        }
+
         public async Task<int> DeleteCake(int id)
         {
-            var idToDelete = await GetById(id);
             using (var conn = Connection)
             {
                 var command = @"DELETE Cake
                                 where Id=@idToDelete;";
 
-                var deleted = await conn.ExecuteAsync(command);
+                var deleted = await conn.ExecuteAsync(command, new { idToDelete =id});
                 return deleted;
             }
         }

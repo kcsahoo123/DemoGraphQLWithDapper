@@ -19,4 +19,14 @@ public class QueryType
     { 
         return await _cakeService.GetAll();
     }
+
+    public async Task<Cake> GetCakeById(int id)
+    {
+        return await _cakeService.GetById(id);
+    }
+
+    public async Task<List<Cake>> GetCakeByName(string name)
+    {
+        return await _cakeService.FilterByName(name);
+    }
 }
