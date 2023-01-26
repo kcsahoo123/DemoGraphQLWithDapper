@@ -15,7 +15,7 @@ public class QueryType
         _cakeRepository = cakeRepository;
         _cakeService = cakeService;
     }
-    public async Task<List<Cake>> AllCakesAsync([Service] MyWorldDbContext context) 
+    public async Task<List<Cake>> AllCakesAsync() 
     { 
         return await _cakeService.GetAll();
     }

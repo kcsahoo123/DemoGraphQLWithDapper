@@ -78,5 +78,18 @@ namespace Dot6.DataAccess
                 return saved;
             }
         }
+
+        public async Task<int> DeleteCake(int id)
+        {
+            var idToDelete = await GetById(id);
+            using (var conn = Connection)
+            {
+                var command = @"DELETE Cake
+                                where Id=@idToDelete;";
+
+                var deleted = await conn.ExecuteAsync(command);
+                return deleted;
+            }
+        }
     }
 }

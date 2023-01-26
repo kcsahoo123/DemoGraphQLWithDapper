@@ -14,5 +14,6 @@ namespace Dot6.Services
         Task<List<Cake>> GetAll();
         Task<List<Cake>> FilterByName(string name);
         Task<int> SaveCake(Cake cake);
+        Task<int> DeleteCake(int id);
     }
 }

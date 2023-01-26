@@ -39,5 +39,10 @@ namespace Dot6.Services
         {
             return await _cakeRepository.SaveCake(cake);
         }
+
+        public async Task<int> DeleteCake(int id)
+        {
+            return await _cakeRepository.DeleteCake(id);
+        }
     }
 }
