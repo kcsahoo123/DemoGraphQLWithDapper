@@ -12,27 +12,21 @@ public class MutationType
     {
         _cakeService = cakeService;
     }
-    public async Task<int> SaveCakeAsync([Service] MyWorldDbContext context, Cake newCake)
+    public async Task<int> SaveCakeAsync(Cake newCake)
     {
         return await _cakeService.SaveCake(newCake);
     }
 
-    //public async Task<Cake> UpdateCakeAsync([Service] MyWorldDbContext context, Cake updateCake)
-    //{
-    //    context.Cake.Update(updateCake);
-    //    await context.SaveChangesAsync();
-    //    return updateCake;
-    //}
+    public async Task<Cake> UpdateCakeAsync(Cake updateCake)
+    {
+        //context.Cake.Update(updateCake);
+        //await context.SaveChangesAsync();
+        return updateCake;
+    }
 
-    //public async Task<string> DeleteCakeAsync([Service] MyWorldDbContext context, int id)
-    //{
-    //    var cakeToDelete = await context.Cake.FindAsync(id);
-    //    if (cakeToDelete == null)
-    //    {
-    //        return "Invalid Operation";
-    //    }
-    //    context.Cake.Remove(cakeToDelete);
-    //    await context.SaveChangesAsync();
-    //    return "Record Deleted!";
-    //}
+    public async Task<string> DeleteCakeAsync(int id)
+    {
+        int result=await _cakeService.DeleteCake(id);
+        return "Record Deleted!";
+    }
 }
