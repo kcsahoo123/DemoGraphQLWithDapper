@@ -83,11 +83,11 @@ namespace Dot6.DataAccess
         {
             using (var conn = Connection)
             {
-                var command = @"UPDATE Cake( Name, Price, Description)
-                                VALUES (Id=@Id, Name=@Name, Price=@Price, Description=@Description)";
+                var command = @"UPDATE Cake
+                                SET Name=@Name,Price=@Price,Description=@Description WHERE Id=@Id";
 
-                var saved = await conn.ExecuteAsync(command, param: cake);
-                return cake;
+                var saved = await conn.ExecuteAsync(command, cake);
+                return await GetById(cake.Id);
             }
         }
 

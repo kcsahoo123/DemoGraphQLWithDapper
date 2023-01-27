@@ -19,9 +19,9 @@ public class MutationType
         return result;
     }
 
-    public async Task<Cake> UpdateCakeAsync(Cake updateCake)
+    public async Task<Cake> UpdateCakeAsync(Cake updatedCake)
     {
-        return await _cakeService.UpdateCake(updateCake);
+        return await _cakeService.UpdateCake(updatedCake);
     }
 
     public async Task<List<Cake>> DeleteCakeAsync(int id)
