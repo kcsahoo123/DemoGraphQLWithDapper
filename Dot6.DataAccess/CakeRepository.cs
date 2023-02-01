@@ -15,6 +15,15 @@ namespace Dot6.DataAccess
     public class CakeRepository : ICakeRepository
     {
         private readonly IConfiguration _configuration;
+        public CakeRepository()
+        {
+
+        }
+
+        public CakeRepository(IConfiguration configuration)
+        {
+            _configuration= configuration;
+        }
 
         private IDbConnection Connection
         {
@@ -22,10 +31,6 @@ namespace Dot6.DataAccess
             {
                 return new SqlConnection(_configuration.GetConnectionString("MyWorldDbConnection"));
             }
-        }
-        public CakeRepository(IConfiguration configuration)
-        {
-            _configuration = configuration;
         }
         public async Task<List<Cake>> FilterByName(string name)
         {

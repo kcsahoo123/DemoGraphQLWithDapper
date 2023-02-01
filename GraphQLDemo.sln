@@ -5,13 +5,19 @@ VisualStudioVersion = 17.0.31903.59
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Dot6.HotChoco12.GraphQL.CRUD.Demo", "Dot6.HotChocolate.Crud.Demo\Dot6.HotChoco12.GraphQL.CRUD.Demo.csproj", "{8B6A51EA-A4CA-4C0E-B823-75B765508F8D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dot6.Services", "Dot6.Services\Dot6.Services.csproj", "{B8907606-0C4B-4BEB-8BCF-394732CDE0F3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Dot6.Services", "Dot6.Services\Dot6.Services.csproj", "{B8907606-0C4B-4BEB-8BCF-394732CDE0F3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dot6.DataAccess", "Dot6.DataAccess\Dot6.DataAccess.csproj", "{6EE4ED28-54EE-4944-A937-53EB89A33C4D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Dot6.DataAccess", "Dot6.DataAccess\Dot6.DataAccess.csproj", "{6EE4ED28-54EE-4944-A937-53EB89A33C4D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dot6.DataModel", "Dot6.DataModel\Dot6.DataModel.csproj", "{6D9F19CC-1F30-4BF9-97F3-549F60A398F5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Dot6.DataModel", "Dot6.DataModel\Dot6.DataModel.csproj", "{6D9F19CC-1F30-4BF9-97F3-549F60A398F5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dot6.Dto", "Dot6.Dto\Dot6.Dto.csproj", "{7688BCB6-1486-48EF-856C-59C1D402703E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Dot6.Dto", "Dot6.Dto\Dot6.Dto.csproj", "{7688BCB6-1486-48EF-856C-59C1D402703E}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SharedFiles", "SharedFiles", "{CA60A9FC-DA23-493C-B2A4-4B5B9C642EF7}"
+	ProjectSection(SolutionItems) = preProject
+		Dot6.DataAccess\appsettings.Development.json = Dot6.DataAccess\appsettings.Development.json
+		Dot6.DataAccess\appsettings.json = Dot6.DataAccess\appsettings.json
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
