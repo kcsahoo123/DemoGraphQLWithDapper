@@ -15,20 +15,17 @@ namespace Dot6.DataAccess
     public class CakeRepository : ICakeRepository
     {
         private readonly IConfiguration _configuration;
-        public CakeRepository()
-        {
-
-        }
 
         public CakeRepository(IConfiguration configuration)
         {
-            _configuration= configuration;
+            _configuration= configuration;            
         }
 
         private IDbConnection Connection
         {
             get
             {
+                var connString = _configuration.GetConnectionString("MyWorldDbConnection");
                 return new SqlConnection(_configuration.GetConnectionString("MyWorldDbConnection"));
             }
         }
@@ -93,6 +90,30 @@ namespace Dot6.DataAccess
 
                 var saved = await conn.ExecuteAsync(command, cake);
                 return await GetById(cake.Id);
+            }
+        }
+
+        public async Task<Cake> CreateUpdateCake(Cake cake)
+        {
+            using (var conn = Connection)
+            {
+                var res = await FilterByName(cake.Name);
+                if (res == null)
+                {
+                    var command = @"INSERT INTO Cake( Name, Price, Description)
+                                VALUES ( @Name, @Price, @Description)";
+
+                    var saved = await conn.ExecuteAsync(command, param: cake);
+                    return await GetById(saved); 
+                }
+                else
+                {
+                    var command = @"UPDATE Cake
+                                SET Name=@Name,Price=@Price,Description=@Description WHERE Id=@Id";
+
+                    var saved = await conn.ExecuteAsync(command, cake);
+                    return await GetById(cake.Id);
+                }
             }
         }
 

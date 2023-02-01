@@ -16,6 +16,7 @@ namespace Dot6.DataAccess
         Task<Cake> GetById(int id);
         Task<int> SaveCake(Cake cake);
         Task<Cake> UpdateCake(Cake cake);
+        Task<Cake> CreateUpdateCake(Cake cake);
         Task<int> DeleteCake(int id);
     }
 }
