@@ -14,9 +14,10 @@ namespace Dot6.DataAccess
 {
     public class MyWorldDbContext : DbContext
     {
-        public MyWorldDbContext(DbContextOptions<MyWorldDbContext> options) : base(options)
+        IConfiguration _configuration;
+        public MyWorldDbContext(DbContextOptions<MyWorldDbContext> options, IConfiguration configuration) : base(options)
         {
-
+            _configuration = configuration;
         }
         public DbSet<Cake> Cake { get; set; }
     }
@@ -29,7 +30,7 @@ namespace Dot6.DataAccess
             var builder = new DbContextOptionsBuilder<MyWorldDbContext>();
             var connectionString = configuration.GetConnectionString("MyWorldDbConnection");
             builder.UseSqlServer(connectionString);
-            return new MyWorldDbContext(builder.Options);
+            return new MyWorldDbContext(builder.Options, configuration);
         }
     }
 }

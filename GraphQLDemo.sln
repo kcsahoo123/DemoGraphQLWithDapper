@@ -15,8 +15,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Dot6.Dto", "Dot6.Dto\Dot6.D
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SharedFiles", "SharedFiles", "{CA60A9FC-DA23-493C-B2A4-4B5B9C642EF7}"
 	ProjectSection(SolutionItems) = preProject
-		Dot6.DataAccess\appsettings.Development.json = Dot6.DataAccess\appsettings.Development.json
-		Dot6.DataAccess\appsettings.json = Dot6.DataAccess\appsettings.json
+		appsettings.json = appsettings.json
 	EndProjectSection
 EndProject
 Global

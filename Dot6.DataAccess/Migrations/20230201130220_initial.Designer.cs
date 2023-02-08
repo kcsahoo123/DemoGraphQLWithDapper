@@ -11,7 +11,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Dot6.DataAccess.Migrations
 {
     [DbContext(typeof(MyWorldDbContext))]
-    [Migration("20230201092817_initial")]
+    [Migration("20230201130220_initial")]
     partial class initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
